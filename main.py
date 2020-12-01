@@ -31,6 +31,9 @@ def a():
                                         for f11 in f7.findAll({'a':'href'}):
                                             print(f11.get('href'))
                                             dowlink=f11.get('href')
+                                            down = requests.get(dowlink, allow_redirects=True)
+                                            with open('tests.mp3', 'wb') as f:
+                                                wr = f.write(down.content)
                                             #webbrowser.open(dowlink)
                                             # website = https://surahquran.com/qura.html#seen
 a()
